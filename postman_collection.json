@@ -1,6 +1,6 @@
 {
   "info": {
-    "_postman_id": "12345-abcde-67890-fghij",
+    "_postman_id": "7add6639-53e3-4a78-8ab8-0ddf8991a4cc",
     "name": "Todo App API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
@@ -12,18 +12,34 @@
         "header": [],
         "url": {
           "raw": "http://localhost:3000/tasks?_page=1&_limit=10",
-          "host": ["http://localhost:3000"],
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
           "path": ["tasks"],
           "query": [
-            { "key": "_page", "value": "1" },
-            { "key": "_limit", "value": "10" }
+            {
+              "key": "_page",
+              "value": "1"
+            },
+            {
+              "key": "_limit",
+              "value": "10"
+            }
           ]
         }
       },
       "response": [
         {
+          "name": "Untitled Response",
+          "originalRequest": {
+            "method": "GET",
+            "header": []
+          },
           "status": "200 OK",
-          "body": "{\n  \"tasks\": [\n    {\n      \"id\": 1,\n      \"text\": \"Buy groceries\",\n      \"completed\": false,\n      \"deleted\": false,\n      \"createdAt\": \"2025-02-03T12:00:00Z\"\n    }\n  ],\n  \"total\": 100,\n  \"page\": 1,\n  \"limit\": 10\n}"
+          "_postman_previewlanguage": "Text",
+          "header": [],
+          "cookie": [],
+          "body": "{\n  \"tasks\": [\n    {\n      \"id\": 1,\n      \"text\": \"Buy groceries\",\n      \"completed\": false,\n      \"deleted\": false,\n      \"createdAt\": \"2025-02-03T12:00:00Z\",\n      \"coordinates\": [46.6980291, 24.7174989]\n    }\n  ],\n  \"total\": 100,\n  \"page\": 1,\n  \"limit\": 10\n}"
         }
       ]
     },
@@ -34,13 +50,30 @@
         "header": [],
         "url": {
           "raw": "http://localhost:3000/counts",
-          "host": ["http://localhost:3000"],
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
           "path": ["counts"]
         }
       },
       "response": [
         {
+          "name": "Untitled Response",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/counts",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["counts"]
+            }
+          },
           "status": "200 OK",
+          "_postman_previewlanguage": "Text",
+          "header": [],
+          "cookie": [],
           "body": "{\n  \"uncompleted\": 2,\n  \"completed\": 1,\n  \"deleted\": 0\n}"
         }
       ]
@@ -49,21 +82,36 @@
       "name": "Add a New Task",
       "request": {
         "method": "POST",
-        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
         "body": {
           "mode": "raw",
-          "raw": "{ \"text\": \"New task description\", \"completed\": false, \"deleted\": false, \"createdAt\": \"2025-02-03T15:00:00Z\" }"
+          "raw": "{ \"text\": \"New task description\", \"completed\": false, \"deleted\": false, \"createdAt\": \"2025-02-03T15:00:00Z\", \"coordinates\": [46.6980291, 24.7174989] }"
         },
         "url": {
           "raw": "http://localhost:3000/tasks",
-          "host": ["http://localhost:3000"],
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
           "path": ["tasks"]
         }
       },
       "response": [
         {
+          "name": "Untitled Response",
+          "originalRequest": {
+            "method": "GET",
+            "header": []
+          },
           "status": "201 Created",
-          "body": "{\n  \"id\": 4,\n  \"text\": \"New task description\",\n  \"completed\": false,\n  \"deleted\": false,\n  \"createdAt\": \"2025-02-03T15:00:00Z\"\n}"
+          "_postman_previewlanguage": "Text",
+          "header": [],
+          "cookie": [],
+          "body": "{\n  \"id\": 4,\n  \"text\": \"New task description\",\n  \"completed\": false,\n  \"deleted\": false,\n  \"createdAt\": \"2025-02-03T15:00:00Z\",\n  \"coordinates\": [46.6980291, 24.7174989]\n}"
         }
       ]
     },
@@ -71,21 +119,36 @@
       "name": "Update a Task",
       "request": {
         "method": "PUT",
-        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
         "body": {
           "mode": "raw",
-          "raw": "{ \"text\": \"Updated task description\", \"completed\": false, \"deleted\": false, \"createdAt\": \"2025-02-03T12:00:00Z\" }"
+          "raw": "{ \"text\": \"Updated task description\", \"completed\": false, \"deleted\": false, \"createdAt\": \"2025-02-03T12:00:00Z\", \"coordinates\": [46.6980291, 24.7174989] }"
         },
         "url": {
           "raw": "http://localhost:3000/tasks/1",
-          "host": ["http://localhost:3000"],
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
           "path": ["tasks", "1"]
         }
       },
       "response": [
         {
+          "name": "Untitled Response",
+          "originalRequest": {
+            "method": "GET",
+            "header": []
+          },
           "status": "200 OK",
-          "body": "{\n  \"id\": 1,\n  \"text\": \"Updated task description\",\n  \"completed\": false,\n  \"deleted\": false,\n  \"createdAt\": \"2025-02-03T12:00:00Z\"\n}"
+          "_postman_previewlanguage": "Text",
+          "header": [],
+          "cookie": [],
+          "body": "{\n  \"id\": 1,\n  \"text\": \"Updated task description\",\n  \"completed\": false,\n  \"deleted\": false,\n  \"createdAt\": \"2025-02-03T12:00:00Z\",\n  \"coordinates\": [46.6980291, 24.7174989]\n}"
         }
       ]
     },
@@ -93,21 +156,36 @@
       "name": "Mark a Task as Completed",
       "request": {
         "method": "PATCH",
-        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
         "body": {
           "mode": "raw",
           "raw": "{ \"completed\": true }"
         },
         "url": {
           "raw": "http://localhost:3000/tasks/1",
-          "host": ["http://localhost:3000"],
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
           "path": ["tasks", "1"]
         }
       },
       "response": [
         {
+          "name": "Untitled Response",
+          "originalRequest": {
+            "method": "GET",
+            "header": []
+          },
           "status": "200 OK",
-          "body": "{\n  \"id\": 1,\n  \"text\": \"Buy groceries\",\n  \"completed\": true,\n  \"deleted\": false,\n  \"createdAt\": \"2025-02-03T12:00:00Z\"\n}"
+          "_postman_previewlanguage": "Text",
+          "header": [],
+          "cookie": [],
+          "body": "{\n  \"id\": 1,\n  \"text\": \"Buy groceries\",\n  \"completed\": true,\n  \"deleted\": false,\n  \"createdAt\": \"2025-02-03T12:00:00Z\",\n  \"coordinates\": [46.6980291, 24.7174989]\n}"
         }
       ]
     },
@@ -118,13 +196,30 @@
         "header": [],
         "url": {
           "raw": "http://localhost:3000/tasks/1",
-          "host": ["http://localhost:3000"],
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
           "path": ["tasks", "1"]
         }
       },
       "response": [
         {
+          "name": "Untitled Response",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/tasks/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["tasks", "1"]
+            }
+          },
           "status": "200 OK",
+          "_postman_previewlanguage": "Text",
+          "header": [],
+          "cookie": [],
           "body": "{\n  \"message\": \"Task deleted successfully\"\n}"
         }
       ]
